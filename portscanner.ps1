@@ -7,7 +7,7 @@ if ( -not $target_ip) {
 	Exit 1
 }
 
-foreach ($port in 20.. 6000) {
+foreach ($port in 20.. 65535) {
 	$c = New-Object System.Net.Sockets.TcpClient
 	$a = $c.BeginConnect($target_ip, $port, $null, $null)
 	$r = $a.AsyncWaitHandle.WaitOne(250)
